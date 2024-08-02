@@ -23,3 +23,6 @@ const textButtonLight = ButtonStyle(
     elevation: WidgetStatePropertyAll(5),
     shadowColor: WidgetStatePropertyAll(Color.fromARGB(255, 2, 31, 48)),
     padding: WidgetStatePropertyAll(EdgeInsets.fromLTRB(15, 5, 15, 5)));
+
+const timerTextStyle =
+    TextStyle(fontSize: 42, fontFamily: 'roboto', fontWeight: FontWeight.w600);
