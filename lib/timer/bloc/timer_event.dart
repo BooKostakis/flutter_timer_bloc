@@ -4,8 +4,13 @@ sealed class TimerEvent {
   const TimerEvent();
 }
 
-final class TimerStarted extends TimerEvent {
-  const TimerStarted({required this.duration});
+final class TimerBackStarted extends TimerEvent {
+  const TimerBackStarted({required this.duration});
+  final int duration;
+}
+
+final class TimerForwardStarted extends TimerEvent {
+  const TimerForwardStarted({required this.duration});
   final int duration;
 }
 
