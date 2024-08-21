@@ -4,13 +4,8 @@ sealed class TimerEvent {
   const TimerEvent();
 }
 
-final class TimerBackStarted extends TimerEvent {
-  const TimerBackStarted({required this.duration});
-  final int duration;
-}
-
-final class TimerForwardStarted extends TimerEvent {
-  const TimerForwardStarted({required this.duration});
+final class TimerStarted extends TimerEvent {
+  const TimerStarted({required this.duration});
   final int duration;
 }
 
@@ -29,4 +24,8 @@ class TimerReset extends TimerEvent {
 class _TimerTicked extends TimerEvent {
   const _TimerTicked({required this.duration});
   final int duration;
+}
+
+class TimerDirectionChange extends TimerEvent {
+  const TimerDirectionChange();
 }

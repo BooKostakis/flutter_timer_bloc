@@ -1,34 +1,47 @@
 part of 'timer_bloc.dart';
 
-sealed class TimerState extends Equatable {
-  const TimerState(this.duration);
-  final int duration;
-
-  @override
-  List<Object> get props => [duration];
+enum TimerStateStatus {
+  initial,
+  runPause,
+  runInProgress,
+  runComplete,
 }
 
-final class TimerInitial extends TimerState {
-  const TimerInitial(super.duration);
-
-  @override
-  String toString() => 'TimerInitial { duration: $duration }';
+@freezed
+class TimerState with _$TimerState {
+  const factory TimerState.general({
+    TimerStateStatus? status,
+    int? duration,
+    bool? directionForward,
+  }) = _TimerStateGeneral;
 }
 
-final class TimerRunPause extends TimerState {
-  const TimerRunPause(super.duration);
 
-  @override
-  String toString() => 'TimerRunPause { duration: $duration }';
-}
 
-final class TimerRunInProgress extends TimerState {
-  const TimerRunInProgress(super.duration);
 
-  @override
-  String toString() => 'TimerRunInProgress { duration: $duration }';
-}
+  // final class TimerInitial extends TimerState {
+  //   const TimerInitial(super.duration, directionForward);
 
-final class TimerRunComplete extends TimerState {
-  const TimerRunComplete() : super(0);
-}
+  //   @override
+  //   String toString() => 'TimerInitial { duration: $duration }';
+  // }
+
+  // final class TimerRunPause extends TimerState {
+  //   const TimerRunPause(super.duration, directionForward);
+
+  //   @override
+  //   String toString() => 'TimerRunPause { duration: $duration }';
+  // }
+
+  // final class TimerRunInProgress extends TimerState {
+  //   const TimerRunInProgress(super.durationm, directionForward);
+
+  //   @override
+  //   String toString() => 'TimerRunInProgress { duration: $duration }';
+  // }
+
+  // final class TimerRunComplete extends TimerState {
+  //   const TimerRunComplete() : super(0);
+
+  // }
+
